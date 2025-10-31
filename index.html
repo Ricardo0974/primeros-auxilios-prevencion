@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataforma de Auxilio y Prevención</title>
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-content">
+      <h1>Plataforma de Auxilio y Prevención</h1>
+      <nav class="main-nav">
+        <button class="nav-button active" data-section="home">Inicio</button>
+        <button class="nav-button" data-section="first-aid">Primeros Auxilios</button>
+        <button class="nav-button" data-section="disasters">Desastres</button>
+        <button class="nav-button" data-section="brigade">Brigadistas</button>
+        <button class="nav-button" data-section="contact">Contacto</button>
+        <button class="nav-button" data-section="trainer">Capacitador</button>
+        <button class="nav-button" data-section="manuals">Manuales</button>
+        <button class="nav-button" data-section="map">Mapa de Evacuación</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" id="app-container">
+    <!-- Sección Inicio -->
+    <section class="section-content active" id="home">
+      <div class="hero-section">
+        <h2>Toda la Información Importante</h2>
+        <p>
+          Accede rápidamente a guías de primeros auxilios y protocolos de prevención de desastres
+          para estar preparado ante cualquier situación.
+        </p>
+        <button class="emergency-button" id="emergencyCallBtn">
+          <i class="fas fa-phone-alt"></i> LLAMAR A EMERGENCIAS (112)
+        </button>
+      </div>
+
+      <div class="search-section">
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar procedimientos o desastres..." id="searchInput" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Primeros Auxilios -->
+    <section class="section-content" id="first-aid">
+      <h2>Guías de Primeros Auxilios</h2>
+      <div class="guides-container" id="first-aid-cards"></div>
+    </section>
+
+    <!-- Desastres -->
+    <section class="section-content" id="disasters">
+      <h2>Guías de Prevención de Desastres</h2>
+      <div class="guides-container" id="disaster-cards"></div>
+    </section>
+
+    <!-- Brigadistas -->
+    <section class="section-content" id="brigade">
+      <h2>Brigadistas y Rescatistas</h2>
+      <div class="guides-container" id="brigade-cards"></div>
+    </section>
+
+    <!-- Contactos -->
+    <section class="section-content" id="contact">
+      <h2>Contactos de Emergencia</h2>
+      <div class="contact-layout">
+        <div class="contact-form-container">
+          <h3>Añadir Nuevo Contacto</h3>
+          <form id="contact-form">
+            <input type="text" id="contact-name" placeholder="Nombre Completo" required />
+            <input type="tel" id="contact-phone" placeholder="Número de Celular" required />
+            <button type="submit">Guardar Contacto</button>
+          </form>
+        </div>
+
+        <div class="contact-list-container">
+          <h3>Mis Contactos Guardados</h3>
+          <div id="saved-contacts" class="contacts-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capacitador -->
+    <section class="section-content" id="trainer">
+      <h2>Portal del Capacitador</h2>
+      <div class="trainer-tools">
+        <div class="tool-card">
+          <h3>Generar Certificado</h3>
+          <input type="text" id="trainer-name" placeholder="Nombre del Capacitador" />
+          <input type="text" id="participant-name" placeholder="Nombre del Participante" />
+          <input type="text" id="course-name" placeholder="Nombre del Curso" />
+          <input type="date" id="course-date" />
+          <button id="generate-cert-btn">Generar Certificado</button>
+        </div>
+      </div>
+      <div id="certificate-container"></div>
+    </section>
+
+    <!-- Manuales -->
+    <section class="section-content" id="manuals">
+      <h2>Manuales de la Plataforma</h2>
+      <div class="manuals-container" id="manuals-list"></div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="section-content" id="map">
+      <h2>Mapa de Zonas Seguras</h2>
+      <div class="map-info">
+        <p><strong>Dirección de Referencia:</strong> Carrera 107 # 140 c 17, Suba, Bogotá, Colombia (Barrio Las Flores).</p>
+        <p>La zona segura principal es el <span class="safe-zone">Parque El Solar</span>, punto de encuentro designado.</p>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4378237328343!2d-74.07309968568754!3d4.735440796578699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85b1e1e1e1e1%3A0x1e1e1e1e1e1e1e!2sCra.%20107%20%23140c-17%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1620000000000!5m2!1ses!2sco"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div id="printableCertificate"></div>
+
+  <!-- Modal Manual -->
+  <div id="manual-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="close-modal-btn">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

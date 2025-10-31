@@ -1,0 +1,401 @@
+/* --- ESTILOS GENERALES --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.2em;
+  color: #0056b3;
+  margin-bottom: 25px;
+}
+
+.section-content {
+  display: none;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.section-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- CABECERA --- */
+.main-header {
+  background-color: #0056b3;
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-header h1 {
+  margin: 0 0 15px 0;
+  font-size: 1.9em;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover, .nav-button.active {
+  background-color: white;
+  color: #0056b3;
+}
+
+/* --- SECCIÓN PRINCIPAL --- */
+.main-content {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section h2 {
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.1em;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+}
+
+/* --- BOTÓN EMERGENCIA --- */
+.emergency-button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.3em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.emergency-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(211, 47, 47, 0.5);
+}
+
+.emergency-button i {
+  margin-right: 10px;
+}
+
+/* --- BUSCADOR --- */
+.search-section {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  padding: 5px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-bar i {
+  color: #888;
+  margin-right: 15px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 12px 0;
+  font-size: 1em;
+}
+
+/* --- TARJETAS DE GUÍAS --- */
+.guides-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.guide-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.guide-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.guide-card-content {
+  padding: 18px;
+  flex-grow: 1;
+}
+
+.guide-card h4 {
+  font-size: 1.4em;
+  margin: 0 0 10px 0;
+  color: #0056b3;
+}
+
+.guide-card p {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* --- DETALLES DE TARJETA --- */
+.guide-card-details {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.guide-card-details h5 {
+  color: #d32f2f;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+.guide-card-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.guide-card-details li {
+  background-color: #f9f9f9;
+  padding: 7px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border-left: 3px solid #4CAF50;
+  font-size: 0.9em;
+}
+
+.guide-card-details li.not {
+  border-left-color: #f44336;
+}
+
+.guide-card-details li.emergency {
+  border-left-color: #FF9800;
+  font-weight: bold;
+}
+
+.video-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.video-link:hover {
+  text-decoration: underline;
+}
+
+/* --- FORMULARIO CONTACTO --- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+.contact-form-container, .contact-list-container {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contact-form button {
+  padding: 12px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#contact-form button:hover {
+  background-color: #004494;
+}
+
+/* --- CONTACTOS --- */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card.quarantined {
+  background-color: #e0e0e0;
+  border-color: #bdbdbd;
+  opacity: 0.7;
+}
+
+/* --- CAPACITADOR / CERTIFICADO --- */
+.trainer-tools {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.tool-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 500px;
+}
+
+.tool-card h3 {
+  margin-top: 0;
+}
+
+.tool-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#generate-cert-btn {
+  padding: 12px 25px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#generate-cert-btn:hover {
+  background-color: #45a049;
+}
+
+/* --- CERTIFICADO --- */
+.certificate {
+  width: 800px;
+  height: 600px;
+  border: 10px solid #0056b3;
+  margin: 40px auto;
+  padding: 40px;
+  background: linear-gradient(45deg, #f0f8ff, #ffffff);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.certificate::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid #4CAF50;
+}
+
+.certificate h1 {
+  font-size: 3em;
+  color: #0056b3;
+  margin-bottom: 10px;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 992px) {
+  .guides-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .guides-container {
+    grid-template-columns: 1fr;
+  }
+
+  .certificate {
+    width: 95%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .main-header h1 {
+    font-size: 1.5em;
+  }
+}
