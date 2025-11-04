@@ -1,3 +1,11 @@
+
+async function loadMessage() {
+    const response = await fetch('http://backend:8000/api/message');
+    const data = await response.json();
+
+    console.log(data);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- DATOS PRINCIPALES ---
     const firstAidData = [
