@@ -9,7 +9,7 @@ services:
     build: ./frontEnd
     container_name: primeros-auxilios-prevencion
     ports:
-      - "8080:80"
+      - "8082:8082"
 
     depends_on:
       - backend
