@@ -17,6 +17,7 @@ pipeline {
         stage('Deploy compose build') {
             steps {
                 sh 'docker-compose down --volumes --remove-orphans'
+                sh 'docker rm -f backend || true'
                 sh 'docker compose up -d'
             }
         }
