@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop'
-                url: 'https://github.com/Ricardo0974/primeros-auxilios-prevencion'
+                git url: 'https://github.com/Ricardo0974/primeros-auxilios-prevencion'
+                    branch: 'develop'
             }
         }
 
